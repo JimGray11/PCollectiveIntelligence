@@ -8,7 +8,18 @@ import sim_calculate_score as sc
 from recommendations_data import critics
 
 
-def recommender_user_cf(prefs, person,sim_function, topN):
+# 使用简单的最相似的推荐
+def top_Matchs(prefs, person, n=5, similarity=sc.sim_pearson):
+    scores = [(similarity(prefs, person, other), other)
+              for other in prefs if other != person]
+    scores.sort()
+    scores.reverse()
+    # 返回相似度最高的前五个商品
+    return scores[:n]
+
+
+# 基于userCF的协同过滤
+def recommender_user_cf(prefs, person, topN, sim_function=sc.sim_pearson):
     # 声明一个变量保存加权评分之和
     totals = dict()
     sim_sums = dict()
