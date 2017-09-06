@@ -1,0 +1,3 @@
+2017-09-06 19:58:32 my_logging.py[line:27] INFO call main function 
+2017-09-06 19:58:32 my_logging.py[line:29] DEBUG try.....except may exist error 
+2017-09-06 19:58:32 my_logging.py[line:32] ERROR 除法存在异常错误: integer division or modulo by zero
